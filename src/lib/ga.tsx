@@ -49,13 +49,11 @@ export const GAScripts = () => {
   return (
     <>
       <Script
-        type="text/partytown"
         strategy="afterInteractive"
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
       />
       <Script
-        type="text/partytown"
         id="gtag-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{

@@ -8,6 +8,7 @@ export interface AppStore {
   isLoading: boolean;
   isLoadingPopupOpen: boolean;
   user: User | null;
+  logs: string;
   setFontsLoaded: (fontsLoaded: boolean) => void;
 }
 
@@ -15,6 +16,7 @@ export const useAppStore = create<AppStore>((set) => ({
   fontsLoaded: false,
   isLoading: false,
   user: null,
+  logs: "[info] app started",
   isLoadingPopupOpen: false,
   setFontsLoaded: (fontsLoaded: boolean) => set((s) => ({ ...s, fontsLoaded })),
 }));

@@ -5,7 +5,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { Partytown } from "@builder.io/partytown/react";
+// import { Partytown } from "@builder.io/partytown/react";
 
 import * as React from "react";
 
@@ -19,7 +19,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <Partytown debug={true} forward={["dataLayer.push"]} />
+          {/* <Partytown debug={false} forward={["dataLayer.push"]} /> */}
         </Head>
         <body>
           <Main />

@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "npm run partytown && next build",
-    "partytown": "partytown copylib public/~partytown",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.7.1",
+    "@ffmpeg/ffmpeg": "^0.11.6",
     "@next/bundle-analyzer": "^13.0.0",
     "clsx": "^1.2.1",
     "firebase": "^9.13.0",
@@ -19,6 +19,7 @@
     "next-transpile-modules": "^9.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-live": "^3.1.1",
     "sass": "^1.55.0",
     "zustand": "^4.1.3"
   },
