@@ -29,23 +29,5 @@ export const defaultMeta = {
   },
 };
 
-// TODO: add variable (NEXT_PUBLIC_GA_TRACKING_ID) to env if necessary
-export const gaTrackingId = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
-
-export const toastErrorConfig = {
-  style: {
-    backgroundColor: "#6A0D0D",
-    color: "white",
-    border: "1px solid white",
-    borderRadius: "6px",
-  },
-};
-
-export const toastSuccessConfig = {
-  style: {
-    backgroundColor: "#0D6B3A",
-    color: "white",
-    border: "1px solid white",
-    borderRadius: "6px",
-  },
-};
+// TODO: add variable (NEXT_PUBLIC_MEASUREMENTID) to env if necessary
+export const gaTrackingId = process.env.NEXT_PUBLIC_MEASUREMENTID;

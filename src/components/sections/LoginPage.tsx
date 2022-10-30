@@ -1,12 +1,8 @@
 import { User } from "firebase/auth";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import { toast } from "react-hot-toast";
-import { useAppStore } from "~/context/use-app-store";
+import React from "react";
 import GoogleIcon from "~/icons/GoogleIcon";
 import Logo from "~/icons/Logo";
-import { toastErrorConfig, toastSuccessConfig } from "~/lib/constants";
-import { formatError } from "~/lib/utils";
 import { SignInWithGoogle } from "~/lib/utils/auth";
 import Container from "../layout/container";
 import Button from "../primitives/Button/Button";
@@ -19,7 +15,6 @@ function Login() {
     try {
       const user: User = (await SignInWithGoogle()) as User;
 
-      toast("", toastSuccessConfig);
       router.push(
         {
           pathname: "/",
@@ -29,7 +24,8 @@ function Login() {
         { shallow: true }
       );
     } catch (error) {
-      toast(formatError(error).message, toastErrorConfig);
+      alert("Error (check console)");
+      console.log(error);
     }
   };
 

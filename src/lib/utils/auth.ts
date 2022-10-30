@@ -7,11 +7,7 @@ import {
   signOut,
   User,
 } from "firebase/auth";
-import { formatError } from ".";
 import { useAppStore } from "~/context/use-app-store";
-import { toast } from "react-hot-toast";
-import { toastErrorConfig } from "../constants";
-import { checkIfUserExists, createUser } from "./firestore";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -40,7 +36,8 @@ export const signOutUser = () =>
         resolve("Success");
       })
       .catch((error) => {
-        toast(error.message, toastErrorConfig);
+        alert("Error (check console)");
+        console.log(error);
       });
   });
 

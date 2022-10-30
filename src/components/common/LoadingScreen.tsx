@@ -2,10 +2,20 @@ import { motion } from "framer-motion";
 import React from "react";
 import LoadingIcon from "~/icons/LoadingIcon";
 
-function LoadingScreen() {
+function LoadingScreen({ variant }: { variant: string }) {
   return (
     <motion.section
-      exit={{ opacity: 0 }}
+      variants={{
+        in: {
+          opacity: 1,
+          pointerEvents: "all",
+        },
+        out: {
+          opacity: 0,
+          pointerEvents: "none",
+        },
+      }}
+      animate={variant}
       transition={{
         duration: 0.1,
       }}

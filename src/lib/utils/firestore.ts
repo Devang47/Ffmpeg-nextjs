@@ -2,15 +2,9 @@ import { User } from "firebase/auth";
 import {
   doc,
   addDoc,
-  setDoc,
   getDoc,
   getFirestore,
   collection,
-  query,
-  orderBy,
-  deleteDoc,
-  Timestamp,
-  getDocs,
 } from "firebase/firestore/lite";
 
 import { app } from "../firebase";
