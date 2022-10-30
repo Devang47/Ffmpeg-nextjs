@@ -1,0 +1,29 @@
+.half-underline {
+  @apply relative;
+  &::after {
+    content: "";
+    @apply bg-light-3 h-0.5 w-8/12 absolute left-0 top-[115%];
+  }
+}
+
+.custom-border {
+  @apply outline-none;
+  &:focus {
+    box-shadow: 0 0 0 2.5px #121212, 0 0 0 3.5px #fff3;
+  }
+}
+.custom-border.primary {
+  box-shadow: 0 0 0 2.5px #121212, 0 0 0 3.5px #e16a2788;
+  &:focus {
+    box-shadow: 0 0 0 2.5px #121212, 0 0 0 4.5px #e16a2788;
+  }
+}
+
+select {
+  background: url("https://res.cloudinary.com/dyn3sdtfm/image/upload/v1666365407/Vector_6_uga37j.png")
+    no-repeat;
+  background-size: 13px;
+  background-position: calc(100% - 0.75rem) center !important;
+  appearance: none !important;
+  padding-right: 2rem !important;
+}

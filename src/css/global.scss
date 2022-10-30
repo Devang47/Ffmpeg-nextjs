@@ -1,0 +1,38 @@
+@import "./custom";
+@import "./helpers";
+@import "./inter.css";
+@import "./tailwind.css";
+
+:root {
+  --font-system: -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen,
+    ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+  --font-body: "Inter", var(--font-system), sans-serif;
+}
+
+html {
+  line-height: 1.5;
+  box-sizing: border-box;
+  text-rendering: geometricprecision;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // tweak if site is light mode.
+  color-scheme: dark;
+  @apply bg-dark-2;
+}
+
+body {
+  font-family: var(--font-body);
+  transition: opacity #{$duration / 3 + "s"} ease-in;
+}
+
+// WARNING: if you don't want to use a fade in for the body, you can remove
+// this chunk of CSS. But ALSO make sure you remove the style tag in the body in _document.tsx
+// and the transition property on the body as well. thx.
+html.fonts-loaded body {
+  opacity: 1 !important;
+}
+// end warning
