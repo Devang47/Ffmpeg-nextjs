@@ -3,27 +3,31 @@ import Document, {
   Head,
   Html,
   Main,
-  NextScript
-} from 'next/document'
-import * as React from 'react'
+  NextScript,
+} from "next/document";
+import { Partytown } from "@builder.io/partytown/react";
+
+import * as React from "react";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
     return (
       <Html lang="en">
-        <Head />
-        <body style={{ opacity: 0 }}>
+        <Head>
+          <Partytown debug={true} forward={["dataLayer.push"]} />
+        </Head>
+        <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;
