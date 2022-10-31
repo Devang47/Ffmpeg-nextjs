@@ -31,11 +31,9 @@ function LiveEditFfpeg() {
 
   const IS_COMPATIBLE = typeof SharedArrayBuffer === "function";
   const mainName = IS_COMPATIBLE ? "proxy_main" : "main";
-  // const corePath = IS_COMPATIBLE
-  //   ? "https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js"
-  //   : "https://unpkg.com/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js";
-  const corePath =
-    "https://unpkg.com/@ffmpeg/core-st@0.11.0/dist/ffmpeg-core.js";
+  const corePath = IS_COMPATIBLE
+    ? "https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js"
+    : "https://unpkg.com/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js";
 
   const changeSelectedValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setConfig(CONFIGS[Number(e.target.value)]);

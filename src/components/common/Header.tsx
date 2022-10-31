@@ -46,7 +46,7 @@ function Header() {
         className="text-center text-light-2 font-extrabold text-[50px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] mix-blend-color-dodge lg:w-8/12 pb-16 w-10/12 mx-auto"
       >
         {lines.map((line, id) => (
-          <span key={id}>
+          <div key={id}>
             {line.split(" ").map((word, id) => (
               <Wrapper key={id}>
                 {word.split("").map((letter, id) => (
@@ -68,7 +68,7 @@ function Header() {
                 ))}
               </Wrapper>
             ))}
-          </span>
+          </div>
         ))}
         {/* Convert your file <br className="hidden lg:block" /> with */}
         {/* <span className="text-white"> native tools!</span> */}
