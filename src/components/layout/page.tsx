@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { User } from "firebase/auth";
 import { checkIfSignedIn } from "~/lib/utils/auth";
 import Navbar from "../common/Navbar";
+import { Meta } from "../common/meta";
 
 type Props = {
   children?: React.ReactNode;
@@ -32,6 +33,10 @@ export const PageLayout = ({ children }: Props) => {
 
   return (
     <>
+      <Meta
+        title="Ffmpeg | Devang Saklani"
+        description="Administrator page of Ffmpeg"
+      />
       <LoadingScreen
         variant={
           useAppStore().isLoadingPopupOpen || user === null ? "in" : "out"

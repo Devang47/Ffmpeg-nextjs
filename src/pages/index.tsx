@@ -5,7 +5,6 @@ import Home from "~/components/sections/Homepage";
 const HomePage = () => {
   return (
     <PageLayout>
-      <Meta />
       <Home />
     </PageLayout>
   );

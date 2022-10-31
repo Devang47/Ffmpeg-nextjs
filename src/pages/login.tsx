@@ -5,7 +5,6 @@ import Login from "~/components/sections/LoginPage";
 const LoginPage = () => {
   return (
     <PageLayout>
-      <Meta title="Login | Ffmpeg" description="Login to Ffmpeg" />
       <Login />
     </PageLayout>
   );
