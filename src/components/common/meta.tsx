@@ -71,7 +71,7 @@ export const Meta = (props: MetaProps) => {
         <meta name="theme-color" content={props.themeColor ?? "#000000"} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="manifest" href="/manifest.json" />
 
         {props.noIndex && <meta name="robots" content="noindex" />}
         {props.noFollow && <meta name="robots" content="nofollow" />}
