@@ -20,9 +20,10 @@ export const siteOrigin = siteURL.origin;
 
 // TODO: update this data
 export const defaultMeta = {
-  title: "Online Menu | Devang Saklani",
-  description: `Create online menu for your restaurant.`,
-  ogImage: `${siteOrigin}/og.png`,
+  title: "ffmpeg | Devang Saklani",
+  description: "ffmpeg | Devang Saklani",
+  ogImage:
+    "https://cdn.raster.app/kitatsu/library-1/FIMLTLsnMu?ixlib=js-3.6.0&height=563&width=544&compress=false&fit=crop&rect=820%2C672%2C544%2C563&ar=0.9662522202486679&s=4c325e06cf12893f99c876d0646baa9d",
   twitter: {
     handle: "@devangsaklani",
     site: "@devangsaklani",
