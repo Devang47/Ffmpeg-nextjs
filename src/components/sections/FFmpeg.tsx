@@ -48,6 +48,8 @@ function FFmpegSection({
 
     addLog("[info] Check console for all logs");
 
+    setProgress(1);
+
     if (!ffmpeg?.isLoaded()) {
       await ffmpeg?.load();
     }
@@ -58,31 +60,43 @@ function FFmpegSection({
     setVideoSrc(
       URL.createObjectURL(new Blob([data?.buffer] as any, { type: mediaType }))
     );
+
+    setProgress(0);
   };
 
   const logs = useAppStore().logs;
 
   return (
     <div className="mt-10">
-      {progress !== 0 ? (
-        <div className=""> loading ...</div>
-      ) : (
-        <Button label="Upload a Video/Audio File" className="mx-auto !p-0">
-          <label
-            htmlFor="fileInput"
-            className="py-2.5 px-6 cursor-pointer flex items-center gap-2.5 justify-center"
-          >
-            <UploadIcon />
-            Upload a Video/Audio File
-            <input
-              id="fileInput"
-              type="file"
-              className="hidden"
-              onChange={onFileUploaded}
-            />
-          </label>
-        </Button>
-      )}
+      <Button
+        disabled={progress !== 0}
+        label="Upload a Video/Audio File"
+        className="mx-auto !p-0"
+      >
+        <label
+          htmlFor="fileInput"
+          className="py-2.5 px-6 cursor-pointer flex items-center gap-2.5 justify-center"
+        >
+          {progress !== 0 ? (
+            "loading ..."
+          ) : (
+            <>
+              <UploadIcon />
+              Upload a Video/Audio File
+              <input
+                id="fileInput"
+                type="file"
+                className="hidden"
+                onChange={onFileUploaded}
+              />
+            </>
+          )}
+        </label>
+      </Button>
+
+      <div className="my-4 text-light-3 text-sm">
+        <code>Check console for logs</code>
+      </div>
 
       {videoSrc.length === 0 ? null : (
         <div className="rounded-lg mt-10 bg-dark-1 border border-light-4 border-opacity-30 w-10/12 max-w-large mx-auto h-fit p-4">

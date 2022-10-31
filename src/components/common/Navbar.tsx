@@ -17,6 +17,7 @@ function Navbar() {
   const router = useRouter();
 
   const handleButtonClick = (btnType: string) => {
+    console.log(btnType);
     switch (btnType) {
       case "Home":
         router.push(
@@ -128,8 +129,8 @@ function Navbar() {
                   duration: 0.3,
                 }}
                 className={clsx(
-                  "text-left py-2 px-2 w-full lg:w-fit hover:underline underline-offset-4",
-                  e === "Sign out" && "font-bold"
+                  "text-left py-2 px-2 w-fit hover:underline underline-offset-4",
+                  i === 3 && "font-bold"
                 )}
               >
                 {e}

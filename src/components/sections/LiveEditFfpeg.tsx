@@ -41,7 +41,7 @@ function LiveEditFfpeg() {
   return (
     <div className="mt-20 text-center">
       <select
-        className="py-2.5 px-5 border border-light-3 text-light-1 border-opacity-50 outline-none bg-dark-1 rounded appearance-none relative focus:border-highlight !pr-14"
+        className="py-2.5 px-5 border border-light-3 text-light-1 border-opacity-50 outline-none bg-dark-1 rounded appearance-none relative focus:border-highlight !pr-14 w-10/12"
         name=""
         id=""
         onChange={changeSelectedValue}
