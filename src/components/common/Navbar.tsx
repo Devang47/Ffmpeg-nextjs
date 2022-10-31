@@ -9,10 +9,15 @@ import clsx from "clsx";
 import { useAppStore } from "~/context/use-app-store";
 import { useRouter } from "next/router";
 import { signOutUser } from "~/lib/utils/auth";
+import Button from "../primitives/Button/Button";
+import Link from "next/link";
 
 function Navbar() {
   const [isOpen, seIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const user = useAppStore().user;
+
+  const loaded = useAppStore().isLoadingPopupOpen;
 
   const router = useRouter();
 
@@ -54,11 +59,21 @@ function Navbar() {
 
   useEffect(() => {
     window.addEventListener("keypress", handleCloseMenuOnKeypress);
+    window.addEventListener("scroll", handleNavbarScroll);
 
     return () => {
       window.removeEventListener("keypress", handleCloseMenuOnKeypress);
+      window.removeEventListener("scroll", handleNavbarScroll);
     };
   }, []);
+
+  const handleNavbarScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
 
   const handleCloseMenuOnKeypress = (e: KeyboardEvent) => {
     e.preventDefault();
@@ -69,18 +84,26 @@ function Navbar() {
 
   return (
     <nav>
-      <div className="fixed top-0 left-0 w-full py-4 px-6 bg-dark-2/70 z-10 focus:border focus:border-light-4 backdrop-blur border-b border-dark-focus">
+      <motion.div
+        className={clsx(
+          `fixed top-0 left-0 w-full py-4 px-6 md:px-16 z-10 focus:border focus:border-light-4 backdrop-blur duration-200 transition-all bg-transparent`,
+          scrolled && "!bg-light-1/5"
+        )}
+      >
         <div className="max-w-large mx-auto flex items-center justify-between">
           <button onClick={() => seIsOpen(true)} className="logo py-4 px-2">
             <NavIcon />
           </button>
-          {useAppStore().isLoading && (
-            <div className="">
-              <LoadingIcon className="w-5 h-5" />
-            </div>
-          )}
+          <Link href={"/admin"} className="ml-auto">
+            <Button
+              label="admin page"
+              className="bg-light-1 bg-opacity-10 hover:bg-opacity-20 duration-150 border mix-blend-color-dodge !border-light-1 !border-opacity-70"
+            >
+              Admin page
+            </Button>
+          </Link>
         </div>
-      </div>
+      </motion.div>
 
       <motion.div
         variants={{
@@ -98,7 +121,7 @@ function Navbar() {
         className="fixed top-0 left-0 bg-dark-2/80 text-center w-full h-screen z-20 backdrop-blur"
       >
         <div className="max-w-large mx-auto">
-          <div className="flex items-center justify-between px-6 lg:px-0 py-4 lg:py-6">
+          <div className="flex items-center justify-between px-6 md:px-16 xl:px-0 py-4 lg:py-6">
             <Logo className="ml-2" />
 
             <button
@@ -109,12 +132,12 @@ function Navbar() {
             </button>
           </div>
 
-          <div className="flex flex-col items-start justify-center mt-32 text-3xl px-6 lg:px-0 gap-8">
+          <div className="flex flex-col items-start justify-center mt-32 text-3xl px-6 md:px-16 xl:px-0 gap-8">
             {new Array(
               "Home",
               "Contact",
               "Report bug",
-              user ? "Sign out" : "Sign in"
+              user && user !== "not signed in" ? "Sign out" : "Sign in"
             ).map((e, i) => (
               <motion.button
                 key={i}
@@ -125,8 +148,8 @@ function Navbar() {
                 onClick={() => handleButtonClick(e)}
                 animate={isOpen ? "open" : "closed"}
                 transition={{
-                  delay: isOpen ? i * 0.13 + 0.2 : 0,
-                  duration: 0.3,
+                  delay: isOpen ? i * 0.1 + 0.1 : 0,
+                  duration: 0.25,
                 }}
                 className={clsx(
                   "text-left py-2 px-2 w-fit hover:underline underline-offset-4",

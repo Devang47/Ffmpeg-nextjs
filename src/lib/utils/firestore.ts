@@ -18,7 +18,7 @@ export const checkIfUserExists = (email: string) =>
     getDoc(docRef)
       .then((doc) => {
         if (doc.exists()) {
-          resolve(true);
+          resolve(doc.data());
         } else {
           resolve(false);
         }

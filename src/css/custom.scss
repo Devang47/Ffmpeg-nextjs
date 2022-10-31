@@ -19,6 +19,10 @@
   }
 }
 
+.withBorder {
+  box-shadow: 0 0 0 2.5px #121212, 0 0 0 3.5px #fff3;
+}
+
 select {
   background: url("https://res.cloudinary.com/dyn3sdtfm/image/upload/v1666365407/Vector_6_uga37j.png")
     no-repeat;
@@ -26,4 +30,29 @@ select {
   background-position: calc(100% - 0.75rem) center !important;
   appearance: none !important;
   padding-right: 2rem !important;
+}
+
+header {
+  background-image: url("https://cdn.raster.app/kitatsu/library-1/46WNodbDbh?ixlib=js-3.6.0&height=3992&width=2246&compress=false&blur=360&con=27&gam=-3&shad=6&s=cd097e6512eb23cfc291535bdc1bd00a");
+  background-attachment: fixed;
+  @apply bg-center bg-cover text-light-2 min-h-[500px] h-[500px] sm:min-h-[550px] py-32 flex flex-col items-center justify-center;
+  font-family: neue-montreal;
+
+  box-shadow: 0px 2.8px 2.2px rgba(0, 0, 0, 0.048),
+    0px 6.8px 5.3px rgba(0, 0, 0, 0.069), 0px 12.8px 10px rgba(0, 0, 0, 0.085),
+    0px 22.8px 17.9px rgba(0, 0, 0, 0.101),
+    0px 42.6px 33.4px rgba(0, 0, 0, 0.122), 0px 102px 80px rgba(0, 0, 0, 0.17);
+
+  h1 {
+    @apply leading-[110%] font-extrabold;
+    letter-spacing: -2px;
+  }
+}
+
+.logo-card {
+  @apply rounded-xl mt-[80px] sm:mt-[-90px] w-fit mx-auto z-[2] relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  // box-shadow: 0px 19px 28px rgba(0, 0, 0, 0.21);
+  border-radius: 20px;
 }

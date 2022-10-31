@@ -1,17 +1,22 @@
 import React from "react";
+import { motion } from "framer-motion";
+import Logo from "~/icons/Logo";
+import Header from "../common/Header";
 import Container from "../layout/container";
 import LiveEditFfpeg from "./LiveEditFfpeg";
 
 function Homepage() {
   return (
-    <Container>
-      <header className="py-12 pt-32">
-        <h1 className="text-center text-light-1 font-extrabold text-[40px] ">
-          Convert your file with ease!
-        </h1>
+    <>
+      <Header />
+      <motion.div className="logo-card">
+        <Logo className="h-40 sm:h-36 md:h-40 xl:h-48" />
+      </motion.div>
+
+      <Container className="pb-20 lg:pb-40">
         <LiveEditFfpeg />
-      </header>
-    </Container>
+      </Container>
+    </>
   );
 }
 

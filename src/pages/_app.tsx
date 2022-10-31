@@ -4,7 +4,6 @@ import type { NextComponentType, NextPageContext } from "next";
 import type { AppProps } from "next/app";
 import * as React from "react";
 
-import { useAppStore } from "~/context/use-app-store";
 import { gaTrackingId, isDev } from "~/lib/constants";
 import { GAScripts, useAppGA } from "~/lib/ga";
 

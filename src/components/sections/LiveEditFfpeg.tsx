@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FFmpegSection from "./FFmpeg";
+import { motion, useInView } from "framer-motion";
 
 const CONFIGS = [
   {
@@ -39,9 +40,31 @@ function LiveEditFfpeg() {
   };
 
   return (
-    <div className="mt-20 text-center">
+    <motion.div
+      initial={{
+        y: 50,
+        opacity: 0,
+      }}
+      animate={{
+        transition: { delay: 1.5 },
+      }}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.7,
+        },
+      }}
+      viewport={{ once: true }}
+      className="mt-20 text-center"
+    >
+      {/* <h2 className="text-4xl font-bold mb-10">Convert file</h2> */}
+
+      <div className="text-[12px] font-bold text-left text-light-2 mb-1.5 w-10/12 max-w-lg mx-auto">
+        Select config:
+      </div>
       <select
-        className="py-2.5 px-5 border border-light-3 text-light-1 border-opacity-50 outline-none bg-dark-1 rounded appearance-none relative focus:border-highlight !pr-14 w-10/12"
+        className="py-2.5 px-5 border border-light-3 text-light-1 border-opacity-50 outline-none bg-dark-1 rounded appearance-none relative focus:border-highlight !pr-14 w-10/12 max-w-lg"
         name=""
         id=""
         onChange={changeSelectedValue}
@@ -61,7 +84,7 @@ function LiveEditFfpeg() {
         corePath={corePath}
         args={config.args}
       />
-    </div>
+    </motion.div>
   );
 }
 

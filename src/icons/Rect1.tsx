@@ -8,7 +8,7 @@ type Props = {
 function Rect1({ className }: Props) {
   return (
     <svg
-      className={clsx(className, 'stroke-light-4/50')}
+      className={clsx(className, 'stroke-light-2')}
       viewBox="0 0 80 87"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

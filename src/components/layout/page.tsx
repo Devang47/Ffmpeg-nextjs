@@ -20,6 +20,7 @@ export const PageLayout = ({ children }: Props) => {
         if (location.pathname === "/login") return (location.pathname = "/");
         setUser(res);
       } catch (error) {
+        useAppStore.setState({ user: "not signed in" });
         setUser("doesn't exists");
         if (error === null) return;
 
@@ -36,8 +37,12 @@ export const PageLayout = ({ children }: Props) => {
           useAppStore().isLoadingPopupOpen || user === null ? "in" : "out"
         }
       />
-      <Navbar />
-      <main>{children}</main>
+      {!useAppStore().isLoadingPopupOpen && (
+        <>
+          <Navbar />
+          <main>{children}</main>
+        </>
+      )}
     </>
   );
 };

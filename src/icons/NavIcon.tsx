@@ -10,7 +10,7 @@ function NavIcon({ className }: Props) {
     <svg
       width="27"
       height="10"
-      className={clsx(className, 'stroke-light-2')}
+      className={clsx(className, 'stroke-light-1')}
       viewBox="0 0 27 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

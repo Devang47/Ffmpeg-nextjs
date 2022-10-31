@@ -7,6 +7,7 @@ type Props = {
   children?: React.ReactNode;
   primary?: boolean;
   disabled?: boolean;
+  withBorder?: boolean;
   onClick?: () => void;
 };
 
@@ -17,6 +18,7 @@ function Button({
   onClick,
   disabled,
   primary,
+  withBorder,
 }: Props) {
   return (
     <button
@@ -26,6 +28,7 @@ function Button({
         "font-semibold py-2 px-4 text-center text-sm bg-dark-1 text-light-1 border rounded border-light-4 duration-75 flex items-center gap-1.5 justify-center custom-border",
         primary && "primary bg-highlight border-highlight",
         disabled && "opacity-50",
+        withBorder && "withborder",
         className
       )}
       disabled={disabled}

@@ -1,5 +1,6 @@
 @import "./custom";
 @import "./helpers";
+@import "./neue";
 @import "./inter.css";
 @import "./tailwind.css";
 
@@ -28,11 +29,3 @@ body {
   font-family: var(--font-body);
   transition: opacity #{$duration / 3 + "s"} ease-in;
 }
-
-// WARNING: if you don't want to use a fade in for the body, you can remove
-// this chunk of CSS. But ALSO make sure you remove the style tag in the body in _document.tsx
-// and the transition property on the body as well. thx.
-html.fonts-loaded body {
-  opacity: 1 !important;
-}
-// end warning
