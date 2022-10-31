@@ -1,6 +1,6 @@
 <div align="center">
     <h1><code>ffmpeg wasm webapp</code></h1>
-<h4>This project is a wasm port of popular cli tool **ffmpeg**</h4>
+<h4>This project is a wasm port of popular cli tool *ffmpeg*</h4>
 </div
 
 
