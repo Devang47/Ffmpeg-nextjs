@@ -58,15 +58,13 @@ function LiveEditFfpeg() {
       viewport={{ once: true }}
       className="mt-20 text-center"
     >
-      {/* <h2 className="text-4xl font-bold mb-10">Convert file</h2> */}
-
       <div className="text-[12px] font-bold text-left text-light-2 mb-1.5 w-10/12 max-w-lg mx-auto">
         Select config:
       </div>
       <select
         className="py-2.5 px-5 border border-light-3 text-light-1 border-opacity-50 outline-none bg-dark-1 rounded appearance-none relative focus:border-highlight !pr-14 w-10/12 max-w-lg"
-        name=""
-        id=""
+        name="select config"
+        id="select-config"
         onChange={changeSelectedValue}
       >
         {CONFIGS.map((e, i) => (
