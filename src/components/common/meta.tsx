@@ -70,11 +70,6 @@ export const Meta = (props: MetaProps) => {
         />
         <meta name="theme-color" content={props.themeColor ?? "#000000"} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link
-          rel="icon"
-          href={isDark ? "/favicon-dark.svg" : "/favicon.svg"}
-          type="image/svg+xml"
-        />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.webmanifest" />
 

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <span className="word-wrapper whitespace-nowrap ml-4">{children}</span>
+    <span className="word-wrapper whitespace-nowrap mr-4">{children}</span>
   );
 };
 
@@ -43,7 +43,7 @@ function Header() {
             },
           },
         }}
-        className="text-center text-light-2 font-extrabold text-[50px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] mix-blend-color-dodge lg:w-8/12 pb-16 w-10/12 mx-auto"
+        className="text-center text-light-2 font-extrabold text-[35px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] mix-blend-color-dodge lg:w-8/12 pb-16 w-10/12 mx-auto"
       >
         {lines.map((line, id) => (
           <div key={id}>
