@@ -4,9 +4,7 @@ import HeaderRect2 from "~/icons/HeaderRect2";
 import { motion } from "framer-motion";
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
-  return (
-    <span className="word-wrapper whitespace-nowrap mr-4">{children}</span>
-  );
+  return <span className="word-wrapper whitespace-nowrap">{children}</span>;
 };
 
 function Header() {
@@ -43,10 +41,13 @@ function Header() {
             },
           },
         }}
-        className="text-center text-light-2 font-extrabold text-[35px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] mix-blend-color-dodge lg:w-8/12 pb-16 w-10/12 mx-auto"
+        className="text-center text-light-2 font-extrabold text-[40px] sm:text-[60px] md:text-[70px] lg:text-[76px] xl:text-[85px] mix-blend-color-dodge lg:w-8/12 pb-16 w-10/12 mx-auto"
       >
         {lines.map((line, id) => (
-          <div key={id}>
+          <div
+            key={id}
+            className="flex flex-wrap gap-4 items-center justify-center"
+          >
             {line.split(" ").map((word, id) => (
               <Wrapper key={id}>
                 {word.split("").map((letter, id) => (
