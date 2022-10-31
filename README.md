@@ -6,10 +6,11 @@ Repository for ffmpeg wasm's website.
 
 - TypeScript
 - Next.js
-- Tailwind
-- Vercel
-- Firebase
-
+- Tailwind 
+- Vercel (for deployment)
+- Firebase (for database)
+- Partytown (for running google analytics script as a service worker)
+ 
 ## Live: [https://ffmpeg.saklani.dev/](https://ffmpeg.saklani.dev/)
 
 ## Get Started on localhost
