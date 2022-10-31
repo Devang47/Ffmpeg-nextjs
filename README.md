@@ -9,6 +9,7 @@ Repository for ffmpeg wasm's website.
 - Tailwind
 - Vercel
 - Firebase
+- Partytown
 
 ## Live: [https://ffmpeg.saklani.dev/](https://ffmpeg.saklani.dev/)
 
