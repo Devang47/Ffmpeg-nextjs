@@ -46,7 +46,7 @@ function Header() {
         {lines.map((line, id) => (
           <div
             key={id}
-            className="flex flex-wrap gap-4 items-center justify-center"
+            className="flex flex-wrap gap-4 gap-y-0 items-center justify-center"
           >
             {line.split(" ").map((word, id) => (
               <Wrapper key={id}>
