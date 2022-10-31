@@ -1,13 +1,18 @@
-# `your-project`
+# ffmpeg wasm webapp
 
-Repository for `your-project`'s website.
+Repository for ffmpeg wasm's website.
 
-## Featured Aspects of the Stack
+## Technologies used
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [Next.js](https://nextjs.org/)
+- TypeScript
+- Next.js
+- Tailwind
+- Vercel
+- Firebase
 
-## Get Started
+## Live: [https://ffmpeg.saklani.dev/](https://ffmpeg.saklani.dev/)
+
+## Get Started on localhost
 
 1. Install yarn:
 
@@ -30,7 +35,3 @@ Repository for `your-project`'s website.
 ## Things to Note
 
 - Make sure you read `.env.example` to see which environment variables you need to run the project.
-
----
-
-If you find you need to make extra config to make this work more seamlessly, feel free to submit a PR suggesting your changes. The goal is to get you up and running with the least steps and burden as possible.
