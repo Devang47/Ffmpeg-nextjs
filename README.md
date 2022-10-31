@@ -9,8 +9,8 @@ Repository for ffmpeg wasm's website.
 - Tailwind
 - Vercel
 - Firebase
-- Partytown
-
+- Partytown (for running google analytics script as a service worker)
+ 
 ## Live: [https://ffmpeg.saklani.dev/](https://ffmpeg.saklani.dev/)
 
 ## Get Started on localhost
