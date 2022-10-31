@@ -13,7 +13,7 @@
 - Firebase (for database)
 - Partytown (for running google analytics script as a service worker)
  
-## Live: [https://ffmpeg.saklani.dev/](https://ffmpeg.saklani.dev/)
+Live: [https://ffmpeg.saklani.dev/](https://ffmpeg.saklani.dev/)
 
 ## Get Started on localhost
 
