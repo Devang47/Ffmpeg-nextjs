@@ -91,7 +91,11 @@ function Navbar() {
         )}
       >
         <div className="max-w-large mx-auto flex items-center justify-between">
-          <button onClick={() => seIsOpen(true)} className="logo py-4 px-2">
+          <button
+            aria-label="nav button"
+            onClick={() => seIsOpen(true)}
+            className="logo py-4 px-2"
+          >
             <NavIcon />
           </button>
           <Link href={"/admin"} className="ml-auto">
