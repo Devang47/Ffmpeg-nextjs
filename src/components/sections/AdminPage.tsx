@@ -46,7 +46,11 @@ function AdminPage() {
           <div className="mt-4 text-xl leading-10 font-medium text-light-2">
             You {"aren't"} authorised to view this page
           </div>
-          <Button className="mx-auto mt-16 w-[160px] gap-3" label="sign in">
+          <Button
+            onClick={() => setUserdb("test")}
+            className="mx-auto mt-16 w-[160px] gap-3"
+            label="sign in"
+          >
             <EyeIcon /> View anyway
           </Button>
           <Link href={"/login"}>
@@ -57,18 +61,19 @@ function AdminPage() {
         </Container>
       );
 
-    case user !== "not signed in":
+    default:
       return (
         <Container className="mt-32">
-          <h1>Admin</h1>
+          <h1 className="text-[45px] font-bold text-light-1">Admin page</h1>
 
-          <div className="">
-            <h2>metrics</h2>
+          <div className="mt-10">
+            <h2 className="text-lg text-light-1">Metrics</h2>
+            <p className="mt-2 text-light-2">
+              not implemented yet, but working on it
+            </p>
           </div>
         </Container>
       );
-    default:
-      return <div className="">{"Maybe you're lost"}</div>;
   }
 }
 
