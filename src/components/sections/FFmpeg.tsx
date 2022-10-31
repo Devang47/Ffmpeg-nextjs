@@ -100,7 +100,9 @@ function FFmpegSection({
 
       {videoSrc.length === 0 ? null : (
         <div className="rounded-lg mt-10 bg-dark-1 border border-light-4 border-opacity-30 w-10/12 max-w-large mx-auto h-fit p-4">
-          <h2 className="font-bold text-lg mb-3 text-left">Output:</h2>
+          <h2 className="font-bold text-lg mb-3 text-left text-light-1">
+            Output:
+          </h2>
           <video
             className="w-full rounded-lg"
             src={videoSrc}
@@ -111,8 +113,8 @@ function FFmpegSection({
       )}
 
       <div className="py-2.5 px-5 text-base rounded bg-dark-1 text-white placeholder-light-4 border border-light-4 border-opacity-30 outline-none w-full max-w-xl duration-75 resize-y mx-auto mt-14 h-fit text-left">
-        <h2 className="font-bold text-lg mb-3">Logs:</h2>
-        <pre className="w-full overflow-y-scroll">
+        <h2 className="font-bold text-lg mb-3 text-light-1">Logs:</h2>
+        <pre className="w-full overflow-y-scroll text-light-3">
           {logs || "logs will appear here"}
         </pre>
       </div>

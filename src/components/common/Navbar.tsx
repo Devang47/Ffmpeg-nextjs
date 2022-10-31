@@ -129,6 +129,7 @@ function Navbar() {
             <Logo className="ml-2" />
 
             <button
+              aria-label="close navbar"
               onClick={() => seIsOpen(false)}
               className="rounded-lg py-3 px-2"
             >
