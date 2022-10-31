@@ -5,6 +5,7 @@ import { User } from "firebase/auth";
 import { checkIfSignedIn } from "~/lib/utils/auth";
 import Navbar from "../common/Navbar";
 import { Meta } from "../common/meta";
+import { LazyMotion, domAnimation } from "framer-motion";
 
 type Props = {
   children?: React.ReactNode;
@@ -37,17 +38,19 @@ export const PageLayout = ({ children }: Props) => {
         title="Ffmpeg | Devang Saklani"
         description="Administrator page of Ffmpeg"
       />
-      <LoadingScreen
-        variant={
-          useAppStore().isLoadingPopupOpen || user === null ? "in" : "out"
-        }
-      />
-      {!useAppStore().isLoadingPopupOpen && (
-        <>
-          <Navbar />
-          <main>{children}</main>
-        </>
-      )}
+      <LazyMotion features={domAnimation}>
+        <LoadingScreen
+          variant={
+            useAppStore().isLoadingPopupOpen || user === null ? "in" : "out"
+          }
+        />
+        {!useAppStore().isLoadingPopupOpen && (
+          <>
+            <Navbar />
+            <main>{children}</main>
+          </>
+        )}
+      </LazyMotion>
     </>
   );
 };

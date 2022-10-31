@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import React from "react";
 import LoadingIcon from "~/icons/LoadingIcon";
 
 function LoadingScreen({ variant }: { variant: string }) {
   return (
-    <motion.section
+    <m.section
       variants={{
         in: {
           opacity: 1,
@@ -24,7 +24,7 @@ function LoadingScreen({ variant }: { variant: string }) {
       <div className="container bg-dark-1 p-3.5 w-fit rounded">
         <LoadingIcon />
       </div>
-    </motion.section>
+    </m.section>
   );
 }
 

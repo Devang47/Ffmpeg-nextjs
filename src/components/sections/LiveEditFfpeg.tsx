@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import FFmpegSection from "./FFmpeg";
-import { motion, useInView } from "framer-motion";
+import { m } from "framer-motion";
 
 const CONFIGS = [
   {
@@ -40,7 +40,7 @@ function LiveEditFfpeg() {
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{
         y: 50,
         opacity: 0,
@@ -82,7 +82,7 @@ function LiveEditFfpeg() {
         corePath={corePath}
         args={config.args}
       />
-    </motion.div>
+    </m.div>
   );
 }
 

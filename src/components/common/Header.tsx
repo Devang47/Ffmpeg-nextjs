@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import HeaderRect from "~/icons/HeaderRect";
 import HeaderRect2 from "~/icons/HeaderRect2";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return <span className="word-wrapper whitespace-nowrap">{children}</span>;
@@ -31,7 +31,7 @@ function Header() {
 
   return (
     <header className="py-12 pb-6 relative">
-      <motion.h1
+      <m.h1
         initial="hidden"
         animate="visible"
         variants={{
@@ -59,12 +59,9 @@ function Header() {
                       display: "inline-block",
                     }}
                   >
-                    <motion.span
-                      variants={item}
-                      style={{ display: "inline-block" }}
-                    >
+                    <m.span variants={item} style={{ display: "inline-block" }}>
                       {letter}
-                    </motion.span>
+                    </m.span>
                   </span>
                 ))}
               </Wrapper>
@@ -73,7 +70,7 @@ function Header() {
         ))}
         {/* Convert your file <br className="hidden lg:block" /> with */}
         {/* <span className="text-white"> native tools!</span> */}
-      </motion.h1>
+      </m.h1>
 
       <HeaderRect className="absolute right-0 bottom-0 w-24 md:w-32 lg:w-48 h-fit mix-blend-color-dodge" />
       <HeaderRect2 className="absolute left-0 bottom-0 w-24 md:w-32 lg:w-48 h-fit mix-blend-color-dodge" />

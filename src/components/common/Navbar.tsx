@@ -3,7 +3,7 @@ import LoadingIcon from "~/icons/LoadingIcon";
 import Logo from "~/icons/Logo";
 import NavIcon from "~/icons/NavIcon";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import CrossIcon from "~/icons/CrossIcon";
 import clsx from "clsx";
 import { useAppStore } from "~/context/use-app-store";
@@ -84,7 +84,7 @@ function Navbar() {
 
   return (
     <nav>
-      <motion.div
+      <m.div
         className={clsx(
           `fixed top-0 left-0 w-full py-4 px-6 md:px-16 z-10 focus:border focus:border-light-4 backdrop-blur duration-200 transition-all bg-transparent`,
           scrolled && "!bg-light-1/5"
@@ -107,9 +107,9 @@ function Navbar() {
             </Button>
           </Link>
         </div>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         variants={{
           open: {
             opacity: 1,
@@ -143,7 +143,7 @@ function Navbar() {
               "Report bug",
               user && user !== "not signed in" ? "Sign out" : "Sign in"
             ).map((e, i) => (
-              <motion.button
+              <m.button
                 key={i}
                 variants={{
                   closed: { opacity: 0, y: 0 },
@@ -161,11 +161,11 @@ function Navbar() {
                 )}
               >
                 {e}
-              </motion.button>
+              </m.button>
             ))}
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </nav>
   );
 }
