@@ -4,6 +4,7 @@ import { createFFmpeg, FFmpeg, fetchFile } from "~/packages/@ffmpeg/ffmpeg/src";
 import Button from "../primitives/Button/Button";
 import { addLog } from "~/lib/utils/ffmpegUtils";
 import UploadIcon from "~/icons/UploadIcon";
+import { incrementValue } from "~/lib/utils/firestore";
 
 const readFromBlobOrFile = (blob: any) =>
   new Promise((resolve, reject) => {
@@ -41,6 +42,8 @@ function FFmpegSection({
   }, [corePath, mainName]);
 
   const onFileUploaded = async ({ target: { files } }: any) => {
+    incrementValue("TIMES_FFMPEG_USED");
+
     const file = new Uint8Array(
       (await readFromBlobOrFile(files[0])) as ArrayBufferLike
     );
@@ -99,8 +102,8 @@ function FFmpegSection({
       <div className="mt-4 text-light-3 text-sm max-w-md mx-auto">
         <code>
           This website isn&apos;t using SharedArrayBuffer, that&apos;s why the
-          browser might freeze for a moment until the processing is done, but
-          script will continue to add logs in the console.
+          browser might freeze until the processing is done, but script will
+          continue to add logs in the console in the background.
         </code>
       </div>
 

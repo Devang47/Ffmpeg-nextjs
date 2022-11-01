@@ -17,7 +17,7 @@ function LoadingScreen({ variant }: { variant: string }) {
       }}
       animate={variant}
       transition={{
-        duration: 0.1,
+        duration: 0.3,
       }}
       className="fixed inset-0 w-full h-full bg-dark-1 flex items-center justify-center z-20"
     >

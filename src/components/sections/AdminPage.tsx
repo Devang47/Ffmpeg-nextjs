@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAppStore } from "~/context/use-app-store";
-import { checkIfUserExists } from "~/lib/utils/firestore";
+import { checkIfUserExists, getMetrics } from "~/lib/utils/firestore";
 import LoadingScreen from "../common/LoadingScreen";
 import Container from "../layout/container";
 import type { User } from "firebase/auth";
@@ -11,6 +11,9 @@ import Link from "next/link";
 function AdminPage() {
   const user = useAppStore().user;
   const [userdb, setUserdb] = useState<any | null | "not signed in">(null);
+  const [metricsData, setMetricsData] = useState<Array<string>[]>();
+
+  const [data, setData] = useState<any[][]>([]);
 
   useEffect(() => {
     (async function () {
@@ -28,6 +31,18 @@ function AdminPage() {
     })();
   }, [user]);
 
+  useEffect(() => {
+    (async function () {
+      const metrics: any = (await getMetrics()) as Object;
+      const array: any = [];
+
+      Object.keys(metrics).forEach(function (key) {
+        array.push([key, metrics[key]]);
+      });
+      setData([...array]);
+    })();
+  }, []);
+
   switch (userdb) {
     case null:
       return <LoadingScreen variant="in" />;
@@ -41,13 +56,17 @@ function AdminPage() {
           <div className="mt-4 text-xl leading-10 font-medium text-light-2">
             You {"aren't"} authorised to view this page
           </div>
-          <Button
-            onClick={() => setUserdb("test")}
-            className="mx-auto mt-16 w-[160px] gap-3"
-            label="sign in"
-          >
-            <EyeIcon /> View anyway
-          </Button>
+
+          {user && user !== "not signed in" && (
+            <Button
+              onClick={() => setUserdb("test")}
+              className="mx-auto mt-16 w-[160px] gap-3"
+              label="sign in"
+            >
+              <EyeIcon /> View anyway
+            </Button>
+          )}
+
           <Link href={"/login"}>
             <Button className="mx-auto mt-6 w-[160px]" label="sign in">
               Sign in
@@ -63,9 +82,22 @@ function AdminPage() {
 
           <div className="mt-10">
             <h2 className="text-lg text-light-1">Metrics</h2>
-            <p className="mt-2 text-light-2">
-              not implemented yet, but working on it
-            </p>
+            <table
+              border={1}
+              className="mt-6 text-light-2 border border-light-3 padding-4 w-full max-w-md overflow-scroll"
+            >
+              <tbody>
+                {data.map((e, id) => (
+                  <tr className="p-2 border-b border-light-3" key={id}>
+                    {e.map((e, id) => (
+                      <td className="p-3 border-r border-light-3" key={id}>
+                        {e}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </Container>
       );

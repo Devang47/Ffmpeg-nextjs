@@ -5,6 +5,8 @@ import {
   getDoc,
   getFirestore,
   collection,
+  updateDoc,
+  increment,
 } from "firebase/firestore/lite";
 
 import { app } from "../firebase";
@@ -31,6 +33,8 @@ export const checkIfUserExists = (email: string) =>
 export const createUser = (user: User) =>
   new Promise(async (resolve, reject) => {
     try {
+      incrementValue("CREATE_USER_REQUESTS");
+
       const userDoc = await addDoc(
         collection(db, "users", user.email || "bug", "data"),
         {
@@ -46,4 +50,39 @@ export const createUser = (user: User) =>
     } catch (error) {
       reject(error);
     }
+  });
+
+export const incrementValue = (field: string) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      const metricsRef = doc(db, "metrics", "data");
+
+      const dataObj: any = {};
+      dataObj[field] = increment(1);
+
+      await updateDoc(metricsRef, {
+        ...dataObj,
+      });
+
+      resolve(true);
+    } catch (error) {
+      reject(error);
+    }
+  });
+
+export const getMetrics = () =>
+  new Promise(async (resolve, reject) => {
+    const docRef = doc(db, "metrics", "data");
+
+    getDoc(docRef)
+      .then((doc) => {
+        if (doc.exists()) {
+          resolve(doc.data());
+        } else {
+          resolve(false);
+        }
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });

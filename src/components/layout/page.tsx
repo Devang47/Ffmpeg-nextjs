@@ -6,6 +6,7 @@ import { checkIfSignedIn } from "~/lib/utils/auth";
 import Navbar from "../common/Navbar";
 import { Meta } from "../common/meta";
 import { LazyMotion, domAnimation } from "framer-motion";
+import { incrementValue } from "~/lib/utils/firestore";
 
 type Props = {
   children?: React.ReactNode;
@@ -30,6 +31,8 @@ export const PageLayout = ({ children }: Props) => {
         console.log(error);
       }
     })();
+
+    incrementValue("PAGE_VISITS");
   }, []);
 
   return (

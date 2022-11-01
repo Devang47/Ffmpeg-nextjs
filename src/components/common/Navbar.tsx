@@ -18,7 +18,7 @@ function Navbar() {
 
   const router = useRouter();
 
-  const handleButtonClick = (btnType: string) => {
+  const handleButtonClick = async (btnType: string) => {
     switch (btnType) {
       case "Home":
         router.push(
@@ -39,7 +39,10 @@ function Navbar() {
         );
         break;
       case "Sign out":
-        signOutUser();
+        useAppStore.setState({ isLoadingPopupOpen: true });
+        await signOutUser();
+        useAppStore.setState({ isLoadingPopupOpen: false });
+        seIsOpen(false);
         break;
       case "Sign in":
         router.push(
@@ -97,7 +100,7 @@ function Navbar() {
           <Link href={"/admin"} className="ml-auto">
             <Button
               label="admin page"
-              className="bg-light-1 bg-opacity-10 hover:bg-opacity-20 duration-150 border mix-blend-color-dodge !border-light-1 !border-opacity-70"
+              className="bg-light-1 bg-opacity-10 hover:bg-opacity-20 duration-150 border mix-blend-color-dodge !border-light-1 !border-opacity-70 !shadow-none"
             >
               Admin page
             </Button>
