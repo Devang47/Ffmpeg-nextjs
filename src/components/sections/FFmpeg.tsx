@@ -94,8 +94,15 @@ function FFmpegSection({
         </label>
       </Button>
 
-      <div className="my-4 text-light-3 text-sm">
+      <div className="mt-8 text-light-3 text-sm">
         <code>Check console for logs</code>
+      </div>
+      <div className="mt-4 text-light-3 text-sm max-w-md mx-auto">
+        <code>
+          This website isn&apos;t using SharedArrayBuffer, that&apos;s why the
+          browser might freeze for a moment until the processing is done, but
+          script will continue to add logs in the console.
+        </code>
       </div>
 
       {videoSrc.length === 0 ? null : (
@@ -113,7 +120,12 @@ function FFmpegSection({
       )}
 
       <div className="py-2.5 px-5 text-base rounded bg-dark-1 text-white placeholder-light-4 border border-light-4 border-opacity-30 outline-none w-full max-w-xl duration-75 resize-y mx-auto mt-14 h-fit text-left">
-        <h2 className="font-bold text-lg mb-3 text-light-1">Logs:</h2>
+        <h2 className="font-bold text-lg mb-3 text-light-1">
+          Logs:
+          <span className="text-light-3 font-medium text-sm ml-2">
+            (Check console if this freezes)
+          </span>
+        </h2>
         <pre className="w-full overflow-y-scroll text-light-3">
           {logs || "logs will appear here"}
         </pre>
