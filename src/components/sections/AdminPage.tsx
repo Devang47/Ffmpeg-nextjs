@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useAppStore } from "~/context/use-app-store";
-import { checkIfUserExists, getMetrics } from "~/lib/utils/firestore";
+import {
+  checkIfUserExists,
+  getMetrics,
+  incrementValue,
+} from "~/lib/utils/firestore";
 import LoadingScreen from "../common/LoadingScreen";
 import Container from "../layout/container";
 import type { User } from "firebase/auth";
@@ -32,6 +36,8 @@ function AdminPage() {
   }, [user]);
 
   useEffect(() => {
+    incrementValue("ADMIN_PAGE_VISITS");
+
     (async function () {
       const metrics: any = (await getMetrics()) as Object;
       const array: any = [];
