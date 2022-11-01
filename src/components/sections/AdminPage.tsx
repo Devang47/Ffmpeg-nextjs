@@ -12,19 +12,14 @@ function AdminPage() {
   const user = useAppStore().user;
   const [userdb, setUserdb] = useState<any | null | "not signed in">(null);
 
-  console.log(user);
-
   useEffect(() => {
     (async function () {
-      console.log("here", user);
-
       if (user === "not signed in") {
         return setUserdb("not signed in");
       }
 
       if (user && typeof user !== "string") {
         const res = await checkIfUserExists(user?.email as string);
-        console.log(res);
 
         if (!res) return setUserdb("not signed in");
 

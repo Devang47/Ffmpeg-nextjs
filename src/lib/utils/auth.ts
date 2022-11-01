@@ -8,6 +8,7 @@ import {
   User,
 } from "firebase/auth";
 import { useAppStore } from "~/context/use-app-store";
+import { createUser } from "./firestore";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -18,7 +19,7 @@ export const SignInWithGoogle = () =>
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       useAppStore.setState({ user: user });
-
+      await createUser(user);
       resolve(user);
 
       //   This gives you a Google Access Token. You can use it to access the Google API.

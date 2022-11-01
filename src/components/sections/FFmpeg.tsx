@@ -30,7 +30,6 @@ function FFmpegSection({
   const [ffmpeg, setFfmpeg] = useState<FFmpeg>();
 
   useEffect(() => {
-    console.log("hhere");
     setFfmpeg(
       createFFmpeg({
         log: true,

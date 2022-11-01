@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import LoadingIcon from "~/icons/LoadingIcon";
 import Logo from "~/icons/Logo";
 import NavIcon from "~/icons/NavIcon";
 
@@ -17,12 +16,9 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const user = useAppStore().user;
 
-  const loaded = useAppStore().isLoadingPopupOpen;
-
   const router = useRouter();
 
   const handleButtonClick = (btnType: string) => {
-    console.log(btnType);
     switch (btnType) {
       case "Home":
         router.push(
